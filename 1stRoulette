@@ -9,22 +9,20 @@ using UnityEngine.UI;
 public class Roulettemgr : MonoBehaviour
 {
     public GameObject RoulettePlate;
-    public GameObject RoulettePanel;
     public Transform Needle;
-
     public Image[] DisplayNumberSlot;
-
     List<int> IndexList = new List<int>();
     int ItemCnt = 6;
     int ResultSlot;
 
-    
+    public void StartCoroutine()
+    {
+        StartCoroutine(StartRoulette());
+    }
     void Start()
     {
 
-        StartCoroutine(StartRoulette());
     }
-
     IEnumerator StartRoulette()
     {
         yield return new WaitForSeconds(2f);
@@ -40,7 +38,6 @@ public class Roulettemgr : MonoBehaviour
         yield return new WaitForSeconds(1f);
         Result();
     }
-
     void Result()
     {
         int closetIndex = -1;
@@ -65,8 +62,6 @@ public class Roulettemgr : MonoBehaviour
 
         Debug.Log("숫자"+ResultSlot);
     }
-
-    // Update is called once per frame
     void Update()
     {
         
